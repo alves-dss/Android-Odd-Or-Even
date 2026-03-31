@@ -3,6 +3,7 @@ package sp.senai.br.parouimpar_pietroalves;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     RadioButton even, odd, zeroFinger, oneFinger, twoFinger, threeFinger, fourFinger, fiveFinger;
     TextView youPointer, alanPointer, resultsPlayer, resultsAlan, vencedor;
-
+    ImageView imagemVoce, imagemAlan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        imagemVoce = findViewById(R.id.imagemVoce);
+        imagemAlan = findViewById(R.id.imagemAlan);
         even = findViewById(R.id.even);
         odd = findViewById(R.id.odd);
         zeroFinger = findViewById(R.id.zeroFinger);
@@ -60,16 +62,34 @@ public class MainActivity extends AppCompatActivity {
         }
         if(zeroFinger.isChecked()){
             escolhaJ = 0;
+            imagemVoce.setImageResource(R.drawable.nada);
         } else if(oneFinger.isChecked()){
             escolhaJ = 1;
+            imagemVoce.setImageResource(R.drawable.um);
         } else if(twoFinger.isChecked()){
             escolhaJ = 2;
+            imagemVoce.setImageResource(R.drawable.dois);
         } else if(threeFinger.isChecked()){
             escolhaJ = 3;
+            imagemVoce.setImageResource(R.drawable.tres);
         } else if(fourFinger.isChecked()){
             escolhaJ = 4;
+            imagemVoce.setImageResource(R.drawable.quatro);
         } else if(fiveFinger.isChecked()){
             escolhaJ= 5;
+            imagemVoce.setImageResource(R.drawable.cinco);
+        }
+
+        if(escolhaAlan == 1){
+            imagemAlan.setImageResource(R.drawable.um);
+        }else if(escolhaAlan == 2){
+            imagemAlan.setImageResource(R.drawable.dois);
+        }else if(escolhaAlan == 3){
+            imagemAlan.setImageResource(R.drawable.tres);
+        }else if(escolhaAlan == 4){
+            imagemAlan.setImageResource(R.drawable.quatro);
+        }else if(escolhaAlan == 5){
+            imagemAlan.setImageResource(R.drawable.cinco);
         }
         int soma = escolhaJ + escolhaAlan;
         if(isEven){
